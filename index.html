@@ -13,3 +13,13 @@
     <iframe src="https://rive.app/s/g5J4fMarFEyHoswljwNiBw/embed" allowfullscreen allow="autoplay"></iframe>
 </body>
 </html>
+window.addEventListener("message", (event) => {
+    const message = event.data;
+    if (message === "door_open_trig") {
+        const inputs = rive.stateMachineInputs("State Machine 1");
+        const doorOpenInput = inputs.find(input => input.name === "door_open_trig");
+        if (doorOpenInput) {
+            doorOpenInput.fire();
+        }
+    }
+}, false);
